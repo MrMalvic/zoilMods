@@ -613,27 +613,44 @@ h3 {
 
 .navigation {
     position: fixed;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 15px;
+    top: 50%;
+    transform: translateY(-50%);
     z-index: 1000;
+    pointer-events: none;
+}
+
+.navigation .nav-btn {
+    pointer-events: auto;
+}
+
+#prevBtn {
+    left: 30px;
+}
+
+#nextBtn {
+    right: 30px;
 }
 
 .nav-btn {
-    padding: 15px 30px;
+    position: fixed;
+    padding: 15px 20px;
     background: linear-gradient(135deg, rgba(145, 70, 255, 0.8), rgba(119, 44, 232, 0.8));
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     color: white;
-    border-radius: 30px;
+    border-radius: 50%;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 500;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    position: relative;
     overflow: hidden;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .nav-btn::before {
@@ -673,15 +690,12 @@ h3 {
     position: absolute;
     top: 25px;
     right: 25px;
-    background: linear-gradient(135deg, rgba(145, 70, 255, 0.9), rgba(119, 44, 232, 0.9));
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: transparent;
+    border: none;
     color: white;
     padding: 8px 20px;
-    border-radius: 25px;
     font-size: 14px;
     font-weight: 500;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     animation: counterPulse 2s ease-in-out infinite;
 }
 
@@ -696,21 +710,17 @@ h3 {
     top: 25px;
     left: 25px;
     z-index: 1001;
-    background: linear-gradient(135deg, rgba(145, 70, 255, 0.9), rgba(119, 44, 232, 0.9));
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: transparent;
+    border: none;
     color: white;
     padding: 12px;
-    border-radius: 50%;
     cursor: pointer;
     font-size: 20px;
     transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .menu-toggle:hover {
     transform: scale(1.1);
-    box-shadow: 0 8px 25px rgba(145, 70, 255, 0.4);
 }
 
 .slide-menu {

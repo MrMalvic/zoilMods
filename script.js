@@ -104,12 +104,6 @@ function updateNavigationButtons() {
     
     prevBtn.disabled = currentSlide === 0;
     nextBtn.disabled = currentSlide === totalSlides - 1;
-    
-    if (currentSlide === totalSlides - 1) {
-        nextBtn.textContent = '🎉 Finish!';
-    } else {
-        nextBtn.textContent = 'Next ▶';
-    }
 }
 
 function getExitDuration(transitionType) {
@@ -231,7 +225,7 @@ function initPresentation() {
 document.addEventListener('DOMContentLoaded', initPresentation);
 
 document.addEventListener('keydown', function(event) {
-    if (event.key === 'ArrowRight') changeSlide(1);
+    if (event.key === 'ArrowRight' || event.key === ' ') changeSlide(1);
     if (event.key === 'ArrowLeft') changeSlide(-1);
 });
 
