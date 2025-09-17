@@ -611,17 +611,6 @@ h3 {
     50% { box-shadow: 0 0 20px rgba(255, 107, 107, 0.8), 0 0 30px rgba(255, 107, 107, 0.6); }
 }
 
-.navigation {
-    position: fixed;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 1000;
-    pointer-events: none;
-}
-
-.navigation .nav-btn {
-    pointer-events: auto;
-}
 
 #prevBtn {
     left: 30px;
@@ -651,6 +640,8 @@ h3 {
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 1001;
+    pointer-events: auto;
 }
 
 .nav-btn::before {
@@ -666,7 +657,7 @@ h3 {
 
 .nav-btn:hover {
     background: linear-gradient(135deg, rgba(145, 70, 255, 1), rgba(119, 44, 232, 1));
-    transform: translateY(-5px) scale(1.05);
+    transform: translateY(-50%);
     box-shadow: 0 10px 25px rgba(145, 70, 255, 0.4),
                 0 0 20px rgba(145, 70, 255, 0.3);
 }
@@ -684,6 +675,33 @@ h3 {
 
 .nav-btn:disabled::before {
     display: none;
+}
+
+/* Mobile responsive navigation */
+@media (max-width: 768px) {
+    .nav-btn {
+        position: fixed;
+        top: auto;
+        bottom: 30px;
+        transform: none;
+        z-index: 1001;
+    }
+    
+    #prevBtn {
+        left: 30px;
+        bottom: 30px;
+    }
+    
+    #nextBtn {
+        right: 30px;
+        bottom: 30px;
+    }
+    
+    .menu-toggle {
+        top: 30px;
+        left: 30px;
+        bottom: auto;
+    }
 }
 
 .slide-counter {
@@ -709,7 +727,7 @@ h3 {
     position: fixed;
     top: 25px;
     left: 25px;
-    z-index: 1001;
+    z-index: 1002;
     background: transparent;
     border: none;
     color: white;
@@ -758,6 +776,10 @@ h3 {
 .menu-overlay.open {
     opacity: 1;
     visibility: visible;
+}
+
+.slide-menu.open ~ .nav-btn {
+    display: none;
 }
 
 .menu-section {
